@@ -3,7 +3,7 @@ import mysql.connector
 import pandas as pd
 from streamlit_option_menu import option_menu
 
-from menus import data_obat, data_transaksi, insert_transaksi, insert_pelanggan, data_pelanggan
+from menus import data_obat, data_transaksi, insert_transaksi, data_pelanggan
 
 st.set_page_config(
     page_title="Apotek"
@@ -34,7 +34,7 @@ class App:
             selected_app=option_menu(
                 menu_title="Menu",
                 options=app_options,
-                icons=["capsule", "receipt-cutoff", "receipt-cutoff", "plus-circle-fill", "plus-circle-fill"],
+                icons=["capsule", "receipt-cutoff", "receipt-cutoff", "plus-circle-fill"],
                 default_index=0
             )
 
@@ -49,6 +49,5 @@ app.add_app("Data Obat", data_obat.app)
 app.add_app("Data Pelanggan", data_pelanggan.app)
 app.add_app("Data Transaksi", data_transaksi.app)
 app.add_app("Insert Transaksi", insert_transaksi.app)
-app.add_app("Insert Customer", insert_pelanggan.app)
 
 app.run()
