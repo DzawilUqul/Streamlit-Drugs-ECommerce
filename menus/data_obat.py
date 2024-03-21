@@ -16,4 +16,4 @@ def app(connection, cursor):
     data = cursor.fetchall()
 
     st.title("Data Obat")
-    st.dataframe(pd.DataFrame(data, columns=cursor.column_names), hide_index=True)
+    st.dataframe(pd.DataFrame(data, columns=cursor.column_names), hide_index=True, use_container_width=True, height=500)
