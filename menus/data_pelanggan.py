@@ -23,7 +23,7 @@ def app(connection, cursor):
         data = cursor.fetchall()
 
         st.title("Data Pelanggan")
-        st.write(pd.DataFrame(data, columns=cursor.column_names))
+        st.write(pd.DataFrame(data, columns=cursor.column_names), hide_index=True)
     elif selected_customer == "Add Customer":
         insert_pelanggan.app(connection, cursor)
     elif selected_customer == "Edit Customer":
