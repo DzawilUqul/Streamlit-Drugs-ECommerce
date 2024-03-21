@@ -34,7 +34,7 @@ class App:
             selected_app=option_menu(
                 menu_title="Menu",
                 options=app_options,
-                icons=["capsule", "receipt-cutoff", "receipt-cutoff", "plus-circle-fill"],
+                icons=["capsule", "person-fill", "receipt-cutoff", "plus-circle-fill"],
                 default_index=0
             )
 
