@@ -17,7 +17,7 @@ def app(connection, cursor):
     if selected_customer == "View Customer":
         cursor.execute(
             """
-            SELECT id_pelanggan AS 'ID Pelanggan', nama_pelanggan AS 'Nama Pelanggan', alamat AS 'Alamat', no_telepon AS 'No. Telp' FROM pelanggan
+            SELECT id_pelanggan AS 'ID Pelanggan', nama_pelanggan AS 'Nama Pelanggan', alamat AS 'Alamat', no_telepon AS 'No. Telp' FROM user
             """
         )
         data = cursor.fetchall()

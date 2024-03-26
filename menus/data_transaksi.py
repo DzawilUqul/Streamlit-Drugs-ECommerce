@@ -6,8 +6,8 @@ def app(connection, cursor):
 
     cursor.execute(
         """
-        SELECT id_transaksi AS 'ID Transaksi', pelanggan.nama_pelanggan AS 'Pelanggan', tanggal AS 'Tanggal', total_harga AS 'Total Harga' FROM transaksi
-        JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan
+        SELECT id_transaksi AS 'ID Transaksi', user.nama_pelanggan AS 'Pelanggan', tanggal AS 'Tanggal', total_harga AS 'Total Harga' FROM transaksi
+        JOIN user ON transaksi.id_pelanggan = user.id_pelanggan
         ORDER BY id_transaksi
         """
     )

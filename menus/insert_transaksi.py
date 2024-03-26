@@ -8,7 +8,7 @@ def app(connection, cursor):
     # Ambil semua pelanggan
     cursor.execute(
         """
-        SELECT id_pelanggan, nama_pelanggan FROM pelanggan
+        SELECT id_pelanggan, nama_pelanggan FROM user
         """
     )
     pelanggan = cursor.fetchall()
