@@ -16,7 +16,6 @@ def app(connection, cursor):
 
         confirm_password = st.text_input("Confirm Password : ", type="password")
 
-        role_dict = {"user": "user", "admin": "admin"}
         selected_role = st.selectbox(
             label="Role",
             options=["user", "admin"],
@@ -55,11 +54,10 @@ def app(connection, cursor):
             if not selected_role:
                 st.warning("Harap masukkan role", icon="⚠️")
                 return
-            selected_role_id = role_dict[selected_role]
 
             # Insert data
             try:
-                cursor.callproc('spInsertCustomer', (nama_pelanggan, no_telp, alamat, selected_role_id, username, password))
+                cursor.callproc('spInsertCustomer', (nama_pelanggan, alamat, no_telp, selected_role, username, password))
                 connection.commit()
                 st.success("Berhasil menambahkan pelanggan", icon="✅")
             except Exception as e:
