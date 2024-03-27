@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
-from menus import insert_obat
+from menus.admin import insert_obat
 
 
 def app(connection, cursor):

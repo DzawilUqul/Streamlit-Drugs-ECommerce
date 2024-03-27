@@ -1,5 +1,5 @@
 import streamlit as st
-from menus import insert_pelanggan
+from menus.admin import insert_pelanggan
 
 
 # Define the functions for login, signup, and logout

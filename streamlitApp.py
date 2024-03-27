@@ -3,7 +3,7 @@ import mysql.connector
 import pandas as pd
 from streamlit_option_menu import option_menu
 
-from menus import data_obat, data_transaksi, insert_transaksi, data_pelanggan
+from menus.admin import data_obat, data_transaksi, insert_transaksi, data_pelanggan
 from Authentication import login_page
 
 
