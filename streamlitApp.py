@@ -3,7 +3,7 @@ import mysql.connector
 import pandas as pd
 from streamlit_option_menu import option_menu
 
-from menus.admin import data_obat, data_transaksi, insert_transaksi, data_pelanggan
+from menus.admin import data_obat, data_transaksi, insert_transaksi, data_pelanggan, data_jenis_obat
 from Authentication import login_page
 
 
@@ -40,7 +40,7 @@ class App:
                 selected_app = option_menu(
                     menu_title="Menu",
                     options=app_options,
-                    icons=["capsule", "person-fill", "receipt-cutoff", "plus-circle-fill"],
+                    icons=["capsule", "capsule", "person-fill", "receipt-cutoff", "plus-circle-fill"],
                     default_index=0
                 )
 
@@ -53,70 +53,10 @@ class App:
 app = App()
 
 app.add_app("Data Obat", data_obat.app)
+app.add_app("Data Jenis Obat", data_jenis_obat.app)
 app.add_app("Data Pelanggan", data_pelanggan.app)
 app.add_app("Data Transaksi", data_transaksi.app)
 app.add_app("Insert Transaksi", insert_transaksi.app)
 app.add_app("Logout", login_page.logout_function)
 
 app.run()
-
-## ====  BAYU  ====
-
-# if selected == "Data Obat":
-#     st.title("Data Obat")
-#     st.write(pd.DataFrame(data, columns=cursor.column_names))
-# elif selected == "Data Transaksi":
-#     cursor.execute("SELECT * FROM transaksi")
-#     data = cursor.fetchall()
-#     st.title("Data Transaksi")
-#     st.write(pd.DataFrame(data, columns=cursor.column_names))
-# elif selected == "Insert Transaksi":
-#     st.title("Insert Transaksi")
-#     user_id = st.number_input(
-#         label="ID User : ",
-#         min_value=1,
-#         placeholder="ID User"
-#     )
-#     date = st.date_input("Tanggal : ")
-#     product_id = st.number_input(
-#         label="ID Produk : ",
-#         min_value=1
-#     )
-#     quantity = st.number_input(
-#         label="Jumlah : ",
-#         min_value=1
-#     )
-#     # button
-#     if st.button("Insert"):
-#         try:
-#             cursor.callproc('spInsertTransaction', [user_id, date, product_id, quantity])
-#             connection.commit()
-#             st.toast("Berhasil menambahkan transaksi", icon="✅")
-#         except mysql.connector.Error as err:
-#             st.toast("Gagal menambahkan transaksi. Err: " + str(err), icon="❌")
-# 
-# elif selected == "Edit Obat":
-#     st.title("Edit Obat")
-#     st.dataframe(pd.DataFrame(data, columns=cursor.column_names))  # Display initial data
-# 
-#     edit_id = st.number_input("Enter ID of obat to edit (or leave blank to view data):", min_value=1)
-# 
-#     if edit_id:  # If user enters an ID to edit
-#         cursor.execute("SELECT * FROM obat WHERE id_obat = %s", (edit_id,))
-#         edit_data = cursor.fetchone()
-# 
-#         if edit_data:  # If obat with entered ID exists
-#             # Pre-fill edit fields with fetched data
-#             drugs_name = st.text_input("Nama: ", value=edit_data[1], key="drug_name")
-#             drugs_price = st.number_input("Harga : ", min_value= 1, value=int(edit_data[2]), max_value=99999999999999, key="drug_price")
-#             drugs_stock = st.number_input("Stok : ", value=edit_data[3], key="drug_stock")
-# 
-#             if st.button("Update Obat"):
-#                 try:
-#                     cursor.callproc('spEditDrugs', [edit_id, drugs_name, drugs_price, drugs_stock])
-#                     connection.commit()
-#                     st.toast("Berhasil mengedit obat", icon="✅")
-#                 except mysql.connector.Error as err:
-#                     st.toast("Gagal menambahkan transaksi. Err: " + str(err), icon="❌")
-#         else:
-#             st.warning("Obat with ID {} not found.".format(edit_id))

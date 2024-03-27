@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
-from menus.admin import insert_pelanggan
+from menus.admin import insert_pelanggan, edit_pelanggan, delete_pelanggan
 
 
 def app(connection, cursor):
@@ -27,8 +27,7 @@ def app(connection, cursor):
     elif selected_customer == "Add Customer":
         insert_pelanggan.app(connection, cursor)
     elif selected_customer == "Edit Customer":
-        st.write("Edit Customer")
-        # edit customer using
+        edit_pelanggan.app(connection, cursor)
     elif selected_customer == "Delete Customer":
-        st.write("Delete Customer")
+        delete_pelanggan.app(connection, cursor)
 

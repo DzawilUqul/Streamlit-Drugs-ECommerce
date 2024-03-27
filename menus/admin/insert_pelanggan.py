@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 
 
 def app(connection, cursor):
@@ -17,7 +16,7 @@ def app(connection, cursor):
 
         confirm_password = st.text_input("Confirm Password : ", type="password")
 
-        role_dict = {"user": 1, "admin": 2}
+        role_dict = {"user": "user", "admin": "admin"}
         selected_role = st.selectbox(
             label="Role",
             options=["user", "admin"],
