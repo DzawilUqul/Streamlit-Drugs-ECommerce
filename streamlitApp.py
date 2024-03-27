@@ -60,7 +60,7 @@ class App:
 
                 self.add_app("Insert Transaksi", insert_transaksi.app, icon="plus-circle-fill")
                 self.add_app("Data Obat", data_obat.app, icon="capsule")
-                self.add_app("Data Jenis Obat", data_jenis_obat.app)
+                self.add_app("Data Jenis Obat", data_jenis_obat.app, icon="capsule")
                 self.add_app("Data Pelanggan", data_pelanggan.app, icon="person-fill")
                 self.add_app("Data Transaksi", data_transaksi.app, icon="receipt-cutoff")
                 self.add_app("Logout", login_page.logout_function, icon="box-arrow-right")
