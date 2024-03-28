@@ -3,7 +3,7 @@ import mysql.connector
 import pandas as pd
 from streamlit_option_menu import option_menu
 
-from menus.admin import data_obat, data_transaksi, insert_transaksi, data_pelanggan, data_jenis_obat
+from menus.admin import data_obat, data_transaksi, data_pelanggan, data_jenis_obat
 from menus.user import etalase_obat, checkout, pesanan_saya, edit_profile
 from Authentication import login_page
 
@@ -58,7 +58,6 @@ class App:
             else:
                 # == Halaman Admin ==
 
-                self.add_app("Insert Transaksi", insert_transaksi.app, icon="plus-circle-fill")
                 self.add_app("Data Obat", data_obat.app, icon="capsule")
                 self.add_app("Data Jenis Obat", data_jenis_obat.app, icon="capsule")
                 self.add_app("Data Pelanggan", data_pelanggan.app, icon="person-fill")

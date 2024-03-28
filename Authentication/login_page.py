@@ -8,7 +8,7 @@ def form_callback():
 
 
 def login(cursor):
-    st.title("Login")
+    st.title("Login Untuk Mulai Berbelanja")
 
     with st.form(key="login_form"):
         username = st.text_input("Username")

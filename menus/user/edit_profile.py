@@ -20,7 +20,7 @@ def app(connection, cursor):
 
         if st.form_submit_button("Update"):
             try:
-                cursor.callproc('spUpdatePelanggan', [st.session_state.user_data["id"], nama, no_telp, alamat])
+                cursor.callproc('spUpdateUser', [st.session_state.user_data["id"], nama, no_telp, alamat])
                 connection.commit()
                 st.success("✅ Berhasil mengedit profile")
             except mysql.connector.Error as err:

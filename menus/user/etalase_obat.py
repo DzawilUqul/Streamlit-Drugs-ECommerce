@@ -110,6 +110,7 @@ def app(connection, cursor):
         container1 = []
         for i in range(len(data1)):
             container1.append(st.container(border=True))
+            container1[i].image(f"https://cdn4.vectorstock.com/i/1000x1000/59/18/medicine-bottle-icon-vector-16825918.jpg", width=50, use_column_width=True)
             container1[i].markdown(f"**{data1[i]['Nama Obat']}**<br>Rp{data1[i]['Harga']}<br>Stok: {data1[i]['Stok']}<br>Jenis Obat: {data1[i]['Jenis Obat']}<br>Satuan: {data1[i]['Nama Satuan']}<br>:green[Diskon {data1[i]['Diskon']}]<br>", unsafe_allow_html=True)
             if(data1[i]['Stok'] == 0):
                 container1[i].button("Beli", key=f"beli_{data1[i]['ID Obat']}", disabled=True)
@@ -119,6 +120,7 @@ def app(connection, cursor):
         container2 = []
         for i in range(len(data2)):
             container2.append(st.container(border=True))
+            container2[i].image(f"https://cdn4.vectorstock.com/i/1000x1000/59/18/medicine-bottle-icon-vector-16825918.jpg", width=50, use_column_width=True)
             container2[i].markdown(f"**{data2[i]['Nama Obat']}**<br>Rp{data2[i]['Harga']}<br>Stok: {data2[i]['Stok']}<br>Jenis Obat: {data2[i]['Jenis Obat']}<br>Satuan: {data2[i]['Nama Satuan']}<br>:green[Diskon {data2[i]['Diskon']}]<br>", unsafe_allow_html=True)
             if(data2[i]['Stok'] == 0):
                 container2[i].button("Beli", key=f"beli_{data2[i]['ID Obat']}", disabled=True)
@@ -128,6 +130,7 @@ def app(connection, cursor):
         container3 = []
         for i in range(len(data3)):
             container3.append(st.container(border=True))
+            container3[i].image(f"https://cdn4.vectorstock.com/i/1000x1000/59/18/medicine-bottle-icon-vector-16825918.jpg", width=50, use_column_width=True)
             container3[i].markdown(f"**{data3[i]['Nama Obat']}**<br>Rp{data3[i]['Harga']}<br>Stok: {data3[i]['Stok']}<br>Jenis Obat: {data3[i]['Jenis Obat']}<br>Satuan: {data3[i]['Nama Satuan']}<br>:green[Diskon {data3[i]['Diskon']}]<br>", unsafe_allow_html=True)
             if(data3[i]['Stok'] == 0):
                 container3[i].button("Beli", key=f"beli_{data3[i]['ID Obat']}", disabled=True)
