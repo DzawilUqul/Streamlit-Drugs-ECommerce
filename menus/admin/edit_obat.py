@@ -27,7 +27,7 @@ def app(connection, cursor):
 
         obat_list = cursor.fetchall()
 
-        obat_dict = {option[0]: option[1] for option in obat_list}
+        obat_dict = {option[1]: option[0] for option in obat_list}
         selected_id_obat = st.selectbox(
             label="Id_Obat",
             options=obat_dict,
@@ -114,7 +114,8 @@ def app(connection, cursor):
                 return
 
             if selected_id_obat:
-                selected_id_obat = int(selected_id_obat)
+                selected_id_obat = obat_dict[selected_id_obat]
+                print(selected_id_obat)
             if diskon:
                 diskon = diskon_dict[diskon]
             if selected_satuan:

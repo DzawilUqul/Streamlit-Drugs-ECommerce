@@ -16,13 +16,13 @@ def app(connection, cursor):
         # obat_id
         cursor.execute(
             """
-            SELECT id_obat, nama_obat FROM obat
+            SELECT id_jenis_obat, nama_jenis_obat FROM jenis_obat
             """
         )
 
         jenis_obat_list = cursor.fetchall()
 
-        jenis_obat_dict = {option[0]: option[1] for option in jenis_obat_list}
+        jenis_obat_dict = {option[1]: option[0] for option in jenis_obat_list}
         selected_id_jenis_obat = st.selectbox(
             label="Id Jenis Obat",
             options=jenis_obat_dict,
@@ -42,6 +42,8 @@ def app(connection, cursor):
             if not nama_obat_renamed:
                 st.warning("Harap isi nama jenis obat", icon="⚠️")
                 return
+            if selected_id_jenis_obat:
+                selected_id_jenis_obat = jenis_obat_dict[selected_id_jenis_obat]
 
             # Insert data
             try:
