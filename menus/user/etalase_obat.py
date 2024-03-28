@@ -33,6 +33,7 @@ def handle_button_jumlah(id_obat):
             return
 
 def app(connection, cursor):
+    st.title("Appotek")
     st.markdown(f"Selamat berbelanja, *{st.session_state.user_data['nama']}*!")
 
     st.subheader("Keranjang Anda")

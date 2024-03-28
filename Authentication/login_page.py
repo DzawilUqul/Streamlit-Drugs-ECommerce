@@ -67,7 +67,7 @@ def logout_function(connection, cursor):
 
 # Main function to manage the UI
 def main(connection, cursor):
-    st.sidebar.title("Navigation")
+    st.sidebar.title("Appotek")
     page = st.sidebar.radio("Go to", ["Login", "Sign Up"])
 
     if page == "Login":
